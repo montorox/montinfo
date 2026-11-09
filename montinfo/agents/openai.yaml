@@ -1,0 +1,4 @@
+interface:
+  display_name: "MontInfo"
+  short_description: "Flat-vector infographic explainers, 8 minutes or more"
+  default_prompt: "Use $montinfo to make an infographic explainer from my script and recorded voice-over."
