@@ -1,8 +1,8 @@
 # MontInfo
 
-Make long animated explainer videos where cartoon people act out every line, in a new illustrated place every few seconds. Everything is drawn and animated by code, so there are no image credits or accounts to pay for. You supply the voice.
+Make long animated explainer videos and vertical Shorts where cartoon people act out every line, in a new illustrated place every few seconds. Everything is drawn and animated by code, so there are no image credits or accounts to pay for. Use your own voice or any AI voice.
 
-Free from [Chris Ife Studio](https://dub.sh/chrisifestudio).
+Stuck, or want to see what others are making? [Join us on Skool](https://dub.sh/chrisifestudio).
 
 ## What you need
 
@@ -35,7 +35,7 @@ Then make the voice-over in whichever way you like:
 - **Record it:** read the script on your phone or microphone.
 - **Use any AI voice tool:** export the audio from it.
 
-Drag the audio file into your agent, and it makes the video. Real scripts are 8 minutes or longer.
+Drag the audio file into your agent, and it makes the video. Full films run 8 minutes or more. Ask for a vertical Short too.
 
 Your videos go in `~/MontInfoStudio/projects`.
 

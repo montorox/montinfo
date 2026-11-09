@@ -1,6 +1,6 @@
 ---
 name: montinfo
-description: Make a long-form 16:9 flat-vector infographic explainer of 8 minutes or more, where cartoon people act out every narrated line inside a new illustrated place every few seconds, from a recorded voice-over. All art and motion are code, with no account or API needed. Use when the user says MontInfo, or asks for a big infographic-channel style explainer, a flat-vector documentary explainer, or an animated explainer with many places and acted-out narration.
+description: Make a flat-vector infographic explainer, as a long-form 16:9 film of 8 minutes or more or a 9:16 Short, where cartoon people act out every narrated line inside a new illustrated place every few seconds, from a voice-over. All art and motion are code, with no account or API needed. Use when the user says MontInfo, or asks for a big infographic-channel style explainer, a flat-vector documentary explainer, an animated explainer with many places and acted-out narration, or a Short in that style.
 ---
 
 # MontInfo
