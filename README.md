@@ -2,9 +2,7 @@
 
 Make long animated explainer videos where cartoon people act out every line, in a new illustrated place every few seconds. Everything is drawn and animated by code, so there are no image credits or accounts to pay for. You supply the voice.
 
-Free from Chris Ife Studio.
-
-https://dub.sh/chrisifestudio
+Free from [Chris Ife Studio](https://dub.sh/chrisifestudio).
 
 ## What you need
 
