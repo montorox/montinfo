@@ -79,22 +79,11 @@ Pace on the Citibank film: 11 minutes, 280 shots, 96 plates, 2.4 s a shot. Place
 **Graphics:** `dateCard placeCard board write type tag numberCard redX stamp banner bubble thought qmark bang puff speedLines sweat coins vignette tint tickBox`.
 **Props:** `MI.prop.` table desk bench gavel block mug moneyBag bills phone arrow lipstick envelope mask cheque dialog swan rabbit hat net truck crate pages ice glove wmoney stream. Arguments for everything are in `references/api.md`. Read it before writing shots.
 **Helpers:** `MI.K.` sign (fill a blank instantly), hand (with a click press), click, mask, rain (falling money), lineGroup (a row of people), flash.
-## Films about films: real clips, robots, code
+## Stories about AI
 
-For a film that shows real footage or an AI at work. All in `MI.K`. Only use footage you own.
-
-```bash
-$PY $T/clips.py --project . swan=old/film.mp4@541+5 first=old/film.mp4@0+0     # name=file@START+SECONDS, 0 seconds is one sharp frame
-$PY $T/splice.py --film body.mp4 --at 245.37 --sample old/film.mp4 --from 0 --to 70.2 --out film.mp4   # cut a long sample in with its own sound
-```
-
-- `K.tv(x, y, w, 'swan', g.st)` a monitor playing the clip. `K.clipIn('swan', x, y, w, h, g.st)` plays it in any rectangle. Options: `{speed, frame}`.
-- `K.film('swan', g.st)` fills the frame, on the place `film_swan`, which every clip gets automatically.
 - `K.robot(x, y, s, {mood, pose, say, enter, hop, walk, flip})` an AI agent as a character. Moods: happy, proud, neutral, oops, thinking, sleepy. Poses: rest, wave, up, point, pointl, shrug, type.
 - `K.term(x, y, w, h, lines, g.st, {title, size, rate})` a code window that types itself.
 - `K.score(x, y, 'Failed', g.st, {col})` a stamped result chip.
-
-Read the frames of every clip before using it: pick a moment that says something, and avoid a clip's blurred transitions. In 9:16, play clips on phone-width screens (`K.clipIn('swan', 680, y, 560, 315, g.st)`) rather than cropping them.
 
 ## Art
 

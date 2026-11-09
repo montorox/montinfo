@@ -26,10 +26,10 @@ const INDEX = `<!doctype html><meta charset=utf-8><style>
 @font-face{font-family:Montserrat;font-weight:900;src:url(/engine/fonts/montserrat-latin-900-normal.woff2)}
 html,body{margin:0;background:#000}canvas{display:block}</style><canvas id=c></canvas>
 <script>window.ART=${JSON.stringify(ART)};window.FORMAT=${JSON.stringify(FORMAT)}</script>
-<script src=/engine/mi-core.js></script><script src=/engine/mi-gfx.js></script><script src=/engine/mi-rig.js></script><script src=/engine/mi-art.js></script><script src=/engine/mi-places.js></script><script src=/engine/mi-kit.js></script><script src=/engine/mi-film.js></script>${['mi-places2.js', 'mi-places3.js'].filter(f => fs.existsSync(path.join(ENGINE, f))).map(f => `<script src=/engine/${f}></script>`).join('')}
+<script src=/engine/mi-core.js></script><script src=/engine/mi-gfx.js></script><script src=/engine/mi-rig.js></script><script src=/engine/mi-art.js></script><script src=/engine/mi-places.js></script><script src=/engine/mi-kit.js></script><script src=/engine/mi-film.js></script>${fs.existsSync(path.join(ENGINE, 'mi-clips.js')) ? '<script src=/engine/mi-clips.js></script>' : ''}${['mi-places2.js', 'mi-places3.js'].filter(f => fs.existsSync(path.join(ENGINE, f))).map(f => `<script src=/engine/${f}></script>`).join('')}
 ${fs.existsSync(path.join(P, 'clips/manifest.js')) ? '<script src=/p/clips/manifest.js></script>' : ''}<script src=/p/words.js></script>${fs.existsSync(path.join(P, 'art.js')) ? '<script src=/p/art.js></script>' : ''}${CHAPTERS.map(f => `<script src=/p/${f}></script>`).join('')}
 <script>(async()=>{await Promise.all([document.fonts.load('900 40px Montserrat'),document.fonts.load('800 40px Montserrat')]);
-try{await MI.loadClips();if(window.setupArt)await window.setupArt();(window.SHOTFILES||[window.defineShots]).forEach(f=>f());await MI.boot(document.getElementById('c'))}catch(e){window.BOOTERR=String(e.stack||e)}})()</script>`;
+try{if(MI.loadClips)await MI.loadClips();if(window.setupArt)await window.setupArt();(window.SHOTFILES||[window.defineShots]).forEach(f=>f());await MI.boot(document.getElementById('c'))}catch(e){window.BOOTERR=String(e.stack||e)}})()</script>`;
 const server = http.createServer((q, r) => {
   const u = decodeURIComponent(q.url.split('?')[0]);
   if (u === '/') { r.writeHead(200, { 'content-type': 'text/html' }); return r.end(INDEX); }

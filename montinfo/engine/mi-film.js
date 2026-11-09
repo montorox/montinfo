@@ -1,23 +1,7 @@
-/* MontInfo film tools: real clips from your own films, a robot for stories about AI agents, a code window, a score chip. */
+/* MontInfo extras: a robot for stories about AI agents, a code window, a score chip. */
 (function () {
   const { rr, el, poly, shade } = MI.draw, K = MI.K;
   const clamp = MI.clamp, lerp = MI.lerp;
-
-  /* Clips come from tools/clips.py: clips/<name>/0000.jpg and clips/manifest.js, loaded before setupArt. Each clip is also a place, film_<name>. */
-  const load = src => new Promise((ok, no) => { const i = new Image(); i.onload = () => ok(i); i.onerror = () => no(new Error('Missing ' + src)); i.src = src; });
-  MI.clipFrames = {}; MI.clipFps = {};
-  MI.loadClips = async () => {
-    await Promise.all(Object.entries(window.CLIPS || {}).map(async ([n, v]) => { const m = typeof v === 'number' ? { n: v, fps: 15 } : v; MI.clipFps[n] = m.fps; MI.clipFrames[n] = await Promise.all(Array.from({ length: m.n }, (_, i) => load(`/p/clips/${n}/${String(i).padStart(4, '0')}.jpg`))); }));
-    Object.keys(MI.clipFrames).forEach(n => { MI.plates['film_' + n] = MI.place(c => { c.drawImage(MI.clipFrames[n][0], 0, 0, 1920, 1080); return {}; }, { floorY: 1080, mood: 'day' }); });
-  };
-  /* o.speed plays slower or faster; o.frame pins one frame. Past its end a clip holds its last frame. */
-  const frameOf = (name, st, o = {}) => { const f = MI.clipFrames[name]; if (!f) throw new Error('No clip named ' + name + '. Add it with tools/clips.py'); const i = o.frame !== undefined ? o.frame : Math.floor((MI.now - st) * (MI.clipFps[name] || 15) * (o.speed || 1)); return f[clamp(i, 0, f.length - 1)]; };
-  /* K.film('name', st) in world space, on the place film_name: the clip fills the frame. */
-  K.film = (name, st, o = {}) => { const f = frameOf(name, st, o); if (!MI._dry) MI.ctx.drawImage(f, 0, 0, 1920, 1080); };
-  /* K.clipIn('name', x, y, w, h, st): the clip plays inside any rectangle, such as a monitor or a cinema screen. */
-  K.clipIn = (name, x, y, w, h, st, o = {}) => { const f = frameOf(name, st, o); if (MI._dry) return; const c = MI.ctx; c.save(); c.beginPath(); c.roundRect(x, y, w, h, o.r ?? 4); c.clip(); c.drawImage(f, x, y, w, h); c.restore(); };
-  /* K.tv(x, y, w, 'name', st): a monitor playing a clip. Height follows 16:9. {stand:false} hides the stand. */
-  K.tv = (x, y, w, name, st, o = {}) => { const c = MI.ctx, h = w * 9 / 16, p = Math.max(10, w * .018); if (o.stand !== false) { rr(c, x + w / 2 - w * .05, y + h, w * .1, w * .07, 4, '#39405a'); rr(c, x + w / 2 - w * .16, y + h + w * .065, w * .32, w * .022, 6, '#2b3147'); } rr(c, x - p, y - p, w + p * 2, h + p * 2, 14, o.col || '#23283c'); K.clipIn(name, x, y, w, h, st, o); };
 
   /* ---------- a small friendly robot with a face on a screen, for stories about AI agents ---------- */
   /* K.robot(x, y, s, {mood, pose, say:[[a,b]], enter, hop, walk:[[t0,x0,t1,x1]], flip})

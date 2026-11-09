@@ -69,16 +69,10 @@ Arguments of every helper, taken from the engine. `st` is a start time in second
 - `lineGroup(who, x0, gap, y, h, o = {})`
 - `flash(g, st)`
 
-## Film tools (`MI.K.`)
+## Stories about AI (`MI.K.`)
 
-Clips come from `tools/clips.py`, which writes `clips/<name>/0000.jpg` at 15 fps and `clips/manifest.js`. They load before `setupArt`.
-
-- `K.film(name, st, {speed, frame})` fills the frame. Use it on the place `film_<name>`.
-- `K.clipIn(name, x, y, w, h, st, {speed, frame, r})` plays in a rectangle. A clip holds its last frame when it runs out.
-- `K.tv(x, y, w, name, st, {stand, col, speed, frame})` a monitor. Height follows 16:9.
 - `K.robot(x, y, s, {mood, pose, say:[[a,b]], enter, hop, walk:[[t0,x0,t1,x1]], seed, flip})` `x, y` are the feet, `s = 1` is about 300 px tall. `mood` and `pose` also take `[[t, name]]` lists.
 - `K.term(x, y, w, h, lines, st, {title, size, rate})` lines are strings or `[string, colour]`; `rate` is lines a second.
 - `K.score(x, y, text, st, {ang, col, size})` a stamped chip.
 
 `MI.COLUMN` is the visible world width, `[0, 1920]` or `[676, 1244]` in 9:16. `MI.ev(name, t, {keep: true})` protects a sound from thinning.
-
