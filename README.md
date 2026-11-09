@@ -2,7 +2,7 @@
 
 Make long animated explainer videos and vertical Shorts where cartoon people act out every line, in a new illustrated place every few seconds. Everything is drawn and animated by code, so there are no image credits or accounts to pay for. Use your own voice or any AI voice.
 
-Stuck, or want to see what others are making? [Join us on Skool](https://dub.sh/chrisifestudio).
+Stuck, or want to see what others are making? [Join Chris Ife Studio on Skool](https://dub.sh/chrisifestudio).
 
 ## What you need
 
